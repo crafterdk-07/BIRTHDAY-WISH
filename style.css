@@ -1,0 +1,91 @@
+/* style.css */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #050505;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: white;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.bg-glow {
+    position: fixed;
+    top: 50%; left: 50%;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, #ff4d6d 0%, transparent 70%);
+    filter: blur(100px);
+    z-index: -1;
+    transform: translate(-50%, -50%);
+}
+
+.mobile-wrapper {
+    width: 100%;
+    max-width: 450px; /* Mobile width constraint */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16; /* Perfect Vertical Ratio */
+    background: #111;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Video fills the frame */
+}
+
+.overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.play-btn {
+    width: 70px; height: 70px;
+    background: #ff4d6d;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 20px #ff4d6d;
+}
+
+/* Glassmorphism Message Card */
+.message-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    animation: slideUp 1s ease-out;
+}
+
+.message-card h2 { color: #ff4d6d; margin-bottom: 10px; }
+.message-card p { line-height: 1.6; color: #ddd; font-size: 15px; }
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
